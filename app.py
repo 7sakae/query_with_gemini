@@ -61,6 +61,8 @@ if model and st.session_state.transaction_data is not None and st.session_state.
     if user_input:
         st.chat_message("user").markdown(user_input)
         df = st.session_state.transaction_data.copy()
+        # Create a lowercase-safe column map
+        column_map = {col.lower(): col for col in df.columns}       
         df_name = "df"
         ddf = st.session_state.data_dictionary
         data_dict_text = '\n'.join(
@@ -97,6 +99,10 @@ Your job is to write Python code that answers the user's question using the Data
 6. Always use the actual DataFrame (`df.columns`) to get the correct column names.
 The data dictionary is only for context and meaning — never for actual spelling or casing.
 
+**Important Notes:**
+- Column names in the data dictionary may not match exactly in case with the DataFrame.
+- Always access DataFrame columns using: `df[column_map['column_name']]` for case-insensitive column access.
+- The variable `column_map` maps all lowercase column names to their correct names in `df.columns`.
 
 
 
@@ -122,7 +128,13 @@ The data dictionary is only for context and meaning — never for actual spellin
                 st.code(clean_code, language="python")
  
             # Safe exec environment
-            local_vars = {"df": df, "pd": pd, "datetime": datetime}
+            local_vars = {
+            "df": df,
+            "pd": pd,
+            "datetime": datetime,
+            "column_map": column_map
+            }
+
             exec(clean_code, {}, local_vars)
             ANSWER = local_vars.get("ANSWER", "No result returned.")
  
