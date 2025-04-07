@@ -62,7 +62,13 @@ if model and st.session_state.transaction_data is not None and st.session_state.
         st.chat_message("user").markdown(user_input)
         df = st.session_state.transaction_data.copy()
         df_name = "df"
-        data_dict_text = st.session_state.data_dictionary.to_string(index=False)
+        ddf = st.session_state.data_dictionary
+        data_dict_text = '\n'.join(
+            '- ' + ddf['column_name'] + 
+            ': ' + ddf['data_type'] + 
+            '. ' + ddf['description']
+)
+
         example_record = df.head(2).to_string(index=False)
  
         # --- Prompt to generate code ---
