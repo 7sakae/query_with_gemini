@@ -81,6 +81,18 @@ Your job is to write Python code that answers the user's question using the Data
 {user_input}
  
 **DataFrame Name:** {df_name}
+
+**Detailed Column Descriptions:**
+Below are the columns of the dataset with their data types and descriptions.
+Use these descriptions to understand what each column represents.
+
+{data_dict_text}
+
+**Guidance:**
+- Carefully match the user’s question to the column(s) based on the description and example data.
+- Do not guess column names. Use the most appropriate column that aligns with the user’s intent.
+- Always favor columns that reflect aggregate value when users ask about metrics like "sales", "revenue", or "cost".
+
  
 **Data Dictionary (Column Descriptions):**
 {data_dict_text}
