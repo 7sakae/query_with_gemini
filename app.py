@@ -87,6 +87,7 @@ Your job is to write Python code that answers the user's question using the Data
 3. Do NOT use import statements.
 4. Store the final answer in a variable named ANSWER.
 5. Assume the DataFrame is already loaded as `{df_name}`.
+6. Use the same variable name you defined when computing the answer in step 4. Avoid renaming or abbreviating it when assigning to ANSWER.
 """
 
         try:
