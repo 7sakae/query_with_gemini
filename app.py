@@ -146,7 +146,7 @@ else:
 # --- Show Chat History ---
 if st.session_state.chat_history:
     st.markdown("## 🕓 Chat History")
-    for entry in st.session_state.chat_history[::-1]:
+    for entry in st.session_state.chat_history:
         st.markdown(f"**🧑‍💻 Question:** {entry['question']}")
         st.markdown(f"**🤖 Explanation:** {entry['explanation']}")
         with st.expander("🔍 Raw Result & Code"):
