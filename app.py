@@ -94,12 +94,11 @@ Your job is to write Python code that answers the user's question using the Data
 3. Do NOT use import statements.
 4. Store the final answer in a variable named ANSWER.
 5. Assume the DataFrame is already loaded as `{df_name}`.
+6. Always use the actual DataFrame (`df.columns`) to get the correct column names.
+The data dictionary is only for context and meaning — never for actual spelling or casing.
 
-**Important Note:**
-- Column names in the data dictionary and DataFrame may have casing differences.
-- Always treat column names as **case-insensitive**.
-- For example, "total", "Total", or "TOTAL" all refer to the same column.
-- Match based on meaning, not case.
+
+
 
 """
  
