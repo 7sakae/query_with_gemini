@@ -8,7 +8,7 @@ st.title("🧠 CSV Chatbot with Schema Awareness")
 st.subheader("Upload your data and ask questions naturally!")
  
 # --- API Key ---
-gemini_api_key = st.secrets.get("GEMINI_API_KEY", None) 
+gemini_api_key = st.secrets.get("gemini_api_key", None) 
 model = None
 if gemini_api_key:
     try:
